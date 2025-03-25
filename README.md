@@ -1,12 +1,13 @@
 # React + Vite
 
-vite
-configured tailwind css
-Header
-Routing
-Login form
-sign up form
-form validation
-useRef hook
-Firebase setup
-deployed project
+->Vite
+->Configured tailwind css
+->Header
+->Routing
+->Login form
+->Sign up form
+->Form validation
+->useRef hook
+->Firebase setup
+->Deployed project to production
+->Create signup user account

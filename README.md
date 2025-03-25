@@ -8,3 +8,5 @@ Login form
 sign up form
 form validation
 useRef hook
+Firebase setup
+deployed project

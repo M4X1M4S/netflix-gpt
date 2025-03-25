@@ -11,3 +11,4 @@
 ->Firebase setup
 ->Deployed project to production
 ->Create signup user account
+->Create redux store and userslice\

@@ -6,7 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -82,7 +82,7 @@ const Login = () => {
           <input
             className="border-1 border-gray-600 block mx-auto w-[85%] mt-5 h-11 bg-gray-600 pl-3"
             type="Name"
-            name="Name"
+            name="name"
             placeholder="Enter your name"
             required
           />

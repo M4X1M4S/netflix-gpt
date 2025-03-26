@@ -5,14 +5,19 @@ import { auth } from "../utils/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isSignUp, setSignUp] = useState(false);
   const email = useRef(null);
   const password = useRef(null);
+  const name = useRef(null);
   const [error, setError] = useState(null);
   const handleButtonClick = () => {
     const message = checkValidData(email.current.value, password.current.value);
@@ -28,9 +33,25 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          navigate("/browse");
-          console.log("user signed up");
-          // ...
+          updateProfile(user, {
+            displayName: name.current.value,
+          })
+            .then(() => {
+              navigate("/browse");
+              console.log("user signed up");
+              // Profile updated!
+              const { uid, displayName, email } = auth.currentUser;
+              dispatch(
+                addUser({ uid: uid, displayName: displayName, email: email })
+              );
+
+              // ...
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+              setError(error.message);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -80,6 +101,7 @@ const Login = () => {
 
         {isSignUp && (
           <input
+            ref={name}
             className="border-1 border-gray-600 block mx-auto w-[85%] mt-5 h-11 bg-gray-600 pl-3"
             type="Name"
             name="name"

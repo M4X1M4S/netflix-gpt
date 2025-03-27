@@ -37,7 +37,6 @@ const Login = () => {
             displayName: name.current.value,
           })
             .then(() => {
-              navigate("/browse");
               console.log("user signed up");
               // Profile updated!
               const { uid, displayName, email } = auth.currentUser;
@@ -68,7 +67,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/browse");
           // ...
         })
         .catch((error) => {

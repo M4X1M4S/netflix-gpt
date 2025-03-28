@@ -12,7 +12,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in
         const { uid, displayName, email } = user;
@@ -25,6 +25,9 @@ const Header = () => {
         navigate("/");
       }
     });
+    return () => {
+      unsubscribe(); // // Cleanup function to remove the previous listener
+    };
   }, []);
 
   const user = useSelector((state) => state.user);

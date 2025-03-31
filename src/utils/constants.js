@@ -3,3 +3,6 @@ export const NETFLIX_LOGO_URL =
 
 export const USER_AVATAR_URL =
   "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp";
+
+export const PROXY_SERVER_URL =
+  "https://tmdb-proxy-server.vercel.app/api/tmdb?path=";

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import React, { useEffect } from "react";
 import { addNowPlayingMovies } from "../utils/movieSlice";
+
 const useNowPlayingMovies = () => {
   const dispatch = useDispatch();
   const getNowplayingMovies = async () => {

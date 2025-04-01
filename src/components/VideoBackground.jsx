@@ -1,37 +1,21 @@
 import React from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addTrailerVideo } from "../utils/movieSlice";
+import { useSelector } from "react-redux";
+import useMovieTrailer from "../hooks/useMovieTrailer";
 const VideoBackground = ({ videoId }) => {
-  const dispatch = useDispatch();
+  useMovieTrailer(videoId);
   const trailer = useSelector((store) => store.movie?.trailerVideo);
+  console.log(trailer);
 
-  const getVideoBackground = async (videoId) => {
-    const reponse = await fetch(
-      `https://tmdb-proxy-server.vercel.app/api/tmdb?path=movie/${videoId}/videos`
-    );
-    const data = await reponse.json();
-    const filteredData = data.results.filter(
-      (video) => video.type === "Trailer" && video.site === "YouTube"
-    );
-    const trailer = filteredData.length ? filteredData[0] : data.results[0];
-    dispatch(addTrailerVideo(trailer));
-  };
-
-  useEffect(() => {
-    getVideoBackground(videoId);
-  }, []);
   return (
-    <div>
+    <div className="relative w-screen h-screen overflow-hidden">
       <iframe
-        width="560"
-        height="315"
-        src={`https://www.youtube.com/embed/c8sf0c-cjzQ?si=${trailer?.key}`}
+        className="absolute top-0 left-0 w-screen h-screen object-cover"
+        src={`https://www.youtube.com/embed/${trailer?.key}?autoplay=1&mute=1&loop=1&playlist=${trailer?.key}&controls=0&showinfo=0&modestbranding=1&rel=0`}
         title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
+        frameBorder="0"
+        allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
       ></iframe>
     </div>
   );

@@ -6,7 +6,8 @@ import SecondaryContainer from "./SecondaryContainer";
 const Browse = () => {
   useNowPlayingMovies(); // Custom hook to fetch now playing movies
   return (
-    /*Maincontainer
+    /*Header
+     Maincontainer
          - vvideo bg
          - movie title
       secondary container

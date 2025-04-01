@@ -42,7 +42,7 @@ const Header = () => {
       });
   };
   return (
-    <div className="absolute  w-full bg-gradient-to-b from-black left-1/2 -translate-x-1/2 flex justify-between">
+    <div className="absolute z-50  w-full bg-gradient-to-b from-black left-1/2 -translate-x-1/2 flex justify-between">
       <img
         className="h-20  m-3 ml-6"
         src={NETFLIX_LOGO_URL}
@@ -57,7 +57,7 @@ const Header = () => {
           />
           <button
             onClick={handleSignOut}
-            className="p-2 rounded-sm bg-red-600 h-10 text-white mr-9 cursor-pointer"
+            className="p-2 rounded-sm bg-red-600 h-10 text-white mr-9 cursor-pointer hover:bg-red-700"
           >
             Sign Out
           </button>

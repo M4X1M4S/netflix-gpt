@@ -17,3 +17,13 @@
 ->BugFix:If the user is not logged in redirect /browse to login-page and vice-versa.
 ->Unsbscribing to onAuthStateChanged()
 ->Add Hardcoded values to constants file
+->Register for TMDB api get access token
+->Get daa from TMDB now playing moview list with the help of tmdb-proxy server
+-> custom hook for now playing movies
+->create movieSlice
+->update store with movies data
+-> planning for MainContainer
+-> fetch data for trailer Video
+->update store with trailer video data
+->Embedd the yt video and make it autoplay and mute
+->Tailwind classes to make container look awesome

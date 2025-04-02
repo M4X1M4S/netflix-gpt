@@ -4,7 +4,10 @@ import { useDispatch } from "react-redux";
 
 const useMovieTrailer = (videoId) => {
   const dispatch = useDispatch();
+  console.log("indside movie trailer", videoId);
+
   const getVideoBackground = async (videoId) => {
+    console.log("ready to fetch video", videoId);
     const reponse = await fetch(
       `https://tmdb-proxy-server.vercel.app/api/tmdb?path=movie/${videoId}/videos`
     );
@@ -13,10 +16,13 @@ const useMovieTrailer = (videoId) => {
       (video) => video.type === "Trailer" && video.site === "YouTube"
     );
     const trailer = filteredData.length ? filteredData[0] : data.results[0];
+    console.log("trailer", trailer);
     dispatch(addTrailerVideo(trailer));
+    console.log("trailer dispatched");
   };
 
   useEffect(() => {
+    console.log("inside useEffect", videoId);
     getVideoBackground(videoId);
   }, []);
 };

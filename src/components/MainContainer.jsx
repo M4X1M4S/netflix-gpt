@@ -8,7 +8,6 @@ const MainContainer = () => {
     (store) => store.movie?.nowPlayingMovies
   );
   if (!nowPlayingVideos) return;
-  console.log(nowPlayingVideos[0]);
 
   const { title, overview, id } = nowPlayingVideos[0];
 

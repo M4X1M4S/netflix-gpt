@@ -12,9 +12,9 @@ const MainContainer = () => {
   const { title, overview, id } = nowPlayingVideos[0];
 
   return (
-    <div>
+    <div className="relative w-full h-[100vh]">
       <VideoTitle title={title} overview={overview} />
-      <VideoBackground videoId={id} />
+      {/* <VideoBackground videoId={id} /> */}
     </div>
   );
 };

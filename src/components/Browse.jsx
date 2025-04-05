@@ -13,7 +13,7 @@ const Browse = () => {
       secondary container
          - movie list*n 
             -cards*n    */
-    <div>
+    <div className="flex flex-col">
       <Header />
       <MainContainer />
       <SecondaryContainer />

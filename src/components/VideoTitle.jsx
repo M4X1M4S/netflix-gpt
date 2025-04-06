@@ -1,16 +1,18 @@
-import React from "react";
-
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="z-40 px-24 pt-[10%] mt-[4%] text-white w-screen h-screen bg-gradient-to-r from-black/50 to-transparent">
-      <h1 className="text-7xl  mb-4 font-semibold">{title}</h1>
-      <p className="text-xl w-1/4 mb-4">{overview}</p>
-      <button className=" px-5 p-3 border-2 text-2xl font-bold mr-2 mt-2 bg-gray-500/50 hover:bg-gray-600 rounded-xs">
-        ▸ Play
-      </button>
-      <button className="p-3 border-2 text-2xl font-medium ml-2 mt-2">
-        ⓘ More Info
-      </button>
+    <div className="relative  z-10">
+      <div className="absolute top-56 left-10 text-white max-w-4xl">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">{title}</h1>
+        <p className="text-lg md:text-xl w-full md:w-2/3 mb-4">{overview}</p>
+        <div className="flex flex-wrap gap-4">
+          <button className="px-6 py-3 text-lg md:text-2xl font-bold bg-white text-black rounded hover:bg-gray-300 transition">
+            ▸ Play
+          </button>
+          <button className="px-6 py-3 text-lg md:text-2xl font-semibold bg-gray-600/70 text-white rounded hover:bg-gray-700 transition">
+            ⓘ More Info
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

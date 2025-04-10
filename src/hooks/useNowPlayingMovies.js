@@ -7,7 +7,7 @@ const useNowPlayingMovies = () => {
   const getNowplayingMovies = async () => {
     // Fetch data from TMDB API and update the Redux store
     const response = await fetch(
-      "https://tmdb-proxy-server.vercel.app/api/tmdb?path=movie/now_playing"
+      "https://tmdb-server.vercel.app/api/tmdb?path=movie/now_playing"
     );
     const data = await response.json();
     dispatch(addNowPlayingMovies(data.results));

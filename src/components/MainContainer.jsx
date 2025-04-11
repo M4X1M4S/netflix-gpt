@@ -9,7 +9,8 @@ const MainContainer = () => {
   );
   if (!nowPlayingVideos) return;
 
-  const { title, overview, id } = nowPlayingVideos[0];
+  const { title, overview, id } = nowPlayingVideos[2];
+  console.log(id);
 
   return (
     <div className=" relative  w-full h-screen bg-amber-200">

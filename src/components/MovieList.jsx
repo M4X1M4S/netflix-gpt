@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard";
 const MovieList = ({ data, heading }) => {
   return (
     <div className="">
-      <span>{heading}</span>
+      <span className="text-3xl font-semibold pl-8">{heading}</span>
       <MovieCard data={data} />
     </div>
   );

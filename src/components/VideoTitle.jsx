@@ -1,7 +1,7 @@
 const VideoTitle = ({ title, overview }) => {
   return (
     <div className="relative  z-10">
-      <div className="absolute top-56 left-10 text-white max-w-4xl">
+      <div className="absolute top-48 left-20 text-white max-w-4xl">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">{title}</h1>
         <p className="text-lg md:text-xl w-full md:w-2/3 mb-4">{overview}</p>
         <div className="flex flex-wrap gap-4">

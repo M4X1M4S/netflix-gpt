@@ -7,10 +7,12 @@ import { onAuthStateChanged } from "firebase/auth";
 import { NETFLIX_LOGO_URL, USER_AVATAR_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
+import { toggleGptSearchBtn } from "../utils/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const gptSearch = useSelector((state) => state.config.gptSearchBtn);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -41,8 +43,11 @@ const Header = () => {
         console.log(error);
       });
   };
+  const handleGptSearchBtnClick = () => {
+    dispatch(toggleGptSearchBtn());
+  };
   return (
-    <div className="absolute w-full flex justify-between pr-6  z-10  bg-opacity-0  ">
+    <div className="absolute w-full flex justify-between pr-6  z-10  bg-opacity-0  bg-gradient-to-b from-black to-transparent">
       <img
         className="h-20  m-3 ml-6"
         src={NETFLIX_LOGO_URL}
@@ -50,6 +55,12 @@ const Header = () => {
       />
       {user && (
         <div className="flex mt-8 ">
+          <button
+            onClick={handleGptSearchBtnClick}
+            className=" bg-red-600  h-10 b text-white p-2 mr-4 cursor-pointer hover:bg-red-700"
+          >
+            {gptSearch ? "Homepage" : "GPTsearch"}
+          </button>
           <img
             className="h-10 mx-2 "
             src={USER_AVATAR_URL}

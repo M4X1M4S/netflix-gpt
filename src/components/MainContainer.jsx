@@ -13,7 +13,7 @@ const MainContainer = () => {
   console.log(id);
 
   return (
-    <div className=" relative  w-full h-screen bg-amber-200">
+    <div className=" relative  w-full h-screen ">
       <VideoTitle title={title} overview={overview} />
       <VideoBackground videoId={id} />
     </div>

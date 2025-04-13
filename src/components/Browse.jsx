@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import GptSearchPage from "./GptSearchPage";
 
 const Browse = () => {
-  const gptSearch = useSelector((state) => state.config.gptSearchBtn);
+  const gptSearch = useSelector((state) => state.gpt.gptSearchBtn);
   useNowPlayingMovies(); // Custom hook to fetch now playing movies
   usePopularMovies(); // Custom hook to fetch popular movies
   useUpcomingMovies(); // Custom hook to fetch upcoming movies

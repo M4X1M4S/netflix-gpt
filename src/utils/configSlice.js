@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const configSlice = createSlice({
   name: "config",
   initialState: {
-    gptSearchBtn: false,
+    language: "en",
   },
   reducers: {
-    toggleGptSearchBtn: (state, action) => {
-      state.gptSearchBtn = !state.gptSearchBtn;
+    setLanguage: (state, action) => {
+      state.language = action.payload;
     },
   },
 });
+
 export default configSlice.reducer;
-export const { toggleGptSearchBtn } = configSlice.actions;
+export const { setLanguage } = configSlice.actions;

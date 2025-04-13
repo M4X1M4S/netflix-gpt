@@ -7,12 +7,14 @@ import { onAuthStateChanged } from "firebase/auth";
 import { NETFLIX_LOGO_URL, USER_AVATAR_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { toggleGptSearchBtn } from "../utils/configSlice";
+import { toggleGptSearchBtn } from "../utils/gptSlice";
+import { SUPPORTED_LANGUAGES } from "../utils/constants";
+import { setLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const gptSearch = useSelector((state) => state.config.gptSearchBtn);
+  const gptSearch = useSelector((state) => state.gpt.gptSearchBtn);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -46,6 +48,9 @@ const Header = () => {
   const handleGptSearchBtnClick = () => {
     dispatch(toggleGptSearchBtn());
   };
+  const handleLanguage = (identifier) => {
+    dispatch(setLanguage(identifier));
+  };
   return (
     <div className="absolute w-full flex justify-between pr-6  z-10  bg-opacity-0  bg-gradient-to-b from-black to-transparent">
       <img
@@ -55,6 +60,24 @@ const Header = () => {
       />
       {user && (
         <div className="flex mt-8 ">
+          {gptSearch && (
+            <select
+              onChange={(e) => handleLanguage(e.target.value)}
+              className="text-white mb-8 ml-3 w-auto text-right mr-4 relative z-20 cursor-pointer"
+              name="languages"
+              id="languages"
+            >
+              {SUPPORTED_LANGUAGES.map((language) => (
+                <option
+                  className="bg-gray-800 text-white text-left"
+                  key={language.identifier}
+                  value={language.identifier}
+                >
+                  {language.identifier}
+                </option>
+              ))}
+            </select>
+          )}
           <button
             onClick={handleGptSearchBtnClick}
             className=" bg-red-600  h-10 b text-white p-2 mr-4 cursor-pointer hover:bg-red-700"

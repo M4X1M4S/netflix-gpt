@@ -6,3 +6,9 @@ export const USER_AVATAR_URL =
 
 export const PROXY_SERVER_URL =
   "https://tmdb-proxy-server.vercel.app/api/tmdb?path=";
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "en", name: "English" },
+  { identifier: "spanish", name: "Spanish" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "german", name: "German" },
+];

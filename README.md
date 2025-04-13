@@ -27,3 +27,13 @@
 ->update store with trailer video data
 ->Embedd the yt video and make it autoplay and mute
 ->Tailwind classes to make container look awesome
+-> Build secondary container
+->Build moviecard
+->Build movielist
+->Tmbd image url
+->Made browse page amazing with TailndCSS
+->CustomHooks
+-> Made gpt Page
+->Made gpt search bar
+->Multi-language feature
+->Integrate GPT APIs

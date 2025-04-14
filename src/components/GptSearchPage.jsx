@@ -3,6 +3,7 @@ import useGetLanguage from "../hooks/useGetLanguage";
 
 const GptSearchPage = () => {
   const language = useGetLanguage();
+
   return (
     <div className="">
       <img

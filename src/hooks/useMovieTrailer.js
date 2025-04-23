@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { addTrailerVideo } from "../utils/movieSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const useMovieTrailer = (videoId) => {
   const dispatch = useDispatch();
   console.log("indside movie trailer", videoId);
+  const videoBackground = useSelector((state) => state.movie.trailerVideo);
 
   const getVideoBackground = async (videoId) => {
     const reponse = await fetch(
@@ -20,8 +21,7 @@ const useMovieTrailer = (videoId) => {
   };
 
   useEffect(() => {
-    console.log("inside useEffect", videoId);
-    getVideoBackground(videoId);
+    !videoBackground && getVideoBackground(videoId);
   }, []);
 };
 

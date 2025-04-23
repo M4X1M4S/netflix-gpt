@@ -10,19 +10,12 @@ import GptSearchPage from "./GptSearchPage";
 
 const Browse = () => {
   const gptSearch = useSelector((state) => state.gpt.gptSearchBtn);
-  useNowPlayingMovies(); // Custom hook to fetch now playing movies
-  usePopularMovies(); // Custom hook to fetch popular movies
-  useUpcomingMovies(); // Custom hook to fetch upcoming movies
-  useTopRatedMovies(); // Custom hook to fetch top rated movies
+  useNowPlayingMovies();
+  usePopularMovies();
+  useUpcomingMovies();
+  useTopRatedMovies();
 
   return (
-    /*Header
-     Maincontainer
-         - vvideo bg
-         - movie title
-      secondary container
-         - movie list*n 
-            -cards*n    */
     <div className="overflow-hidden">
       <Header />
       {gptSearch ? (
